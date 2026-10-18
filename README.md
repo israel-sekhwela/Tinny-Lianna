@@ -5,19 +5,22 @@ A responsive, single-page website for Tinny Lianna's Daycare in Bonaero Park, Ke
 ## Features
 
 - Daycare information, opening hours, and location
-- Registration information and an in-page Letter of Intent form preview
+- Registration information and an online Intent form
+- Facebook and TikTok search links for Tinny Lianna's Daycare
 - Gallery sections for facilities and school information
 - Responsive layout and image-preview modal
 - Launch-ready assets published from the `live-assets` branch
 
 ## Run locally
 
-Open `index.html` in a browser. Keep the `css`, `js`, `forms`, and `assets` folders alongside it.
+Run `python -m http.server 8000` from the website folder, then open `http://localhost:8000`. Keep the `css`, `js`, `forms`, and `assets` folders alongside `index.html`.
 
 ## Images
 
 The `live-assets` branch includes the logo, banner, daily programme, and facility photos used by the published website. Meal and event gallery photos are not part of this launch and can be added later when ready for publication.
 
-## Letter of Intent
+## Intent form
 
-The form in `forms/` lets a family express interest and share information so the daycare can consider availability and follow up about next steps. It is not final registration and does not guarantee or reserve a place.
+The downloadable form in `forms/` and online form let a family express interest and share information so the daycare can consider availability and follow up about next steps. Neither is final registration, and neither guarantees or reserves a place.
+
+Online submissions use Formspree's Vanilla JavaScript Ajax integration and a typed parent/guardian signature. The form displays a confirmation after a successful submission, and families can download the original Intent form if they prefer to complete it separately. Configure the notification recipient in the Formspree account. The public form ID is wired in `index.html`; it is not an API key or password. Do not add account credentials to the site. Keep submissions limited to the information needed to respond to an enquiry.
