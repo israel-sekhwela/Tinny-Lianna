@@ -1,6 +1,6 @@
 # Tinny Lianna's Daycare
 
-A responsive, single-page website for Tinny Lianna's Daycare in Bonaero Park, Kempton Park. Its tagline is “Nurturing Little Minds, Building Bright Futures.”
+A responsive, single-page website for Tinny Lianna's Daycare in Bonaero Park, Kempton Park. Its tagline is “Nurturing Little Minds, Building Bright Futures.” Visit the live website at [tinny-lianna.github.io](https://tinny-lianna.github.io/).
 
 ## Features
 
