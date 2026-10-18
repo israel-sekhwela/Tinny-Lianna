@@ -471,6 +471,7 @@
     }
     .registration-copy h2 { margin: 16px 0 12px; font-size: clamp(2rem, 3.5vw, 2.8rem); }
     .registration-copy > p { max-width: 570px; margin: 0 0 23px; color: var(--muted); }
+    .intent-open { border: 0; font: inherit; cursor: pointer; }
     .registration-aside { display: grid; align-content: center; gap: 14px; }
     .registration-status {
       display: flex;
@@ -730,6 +731,18 @@
       background: #fff;
     }
     .image-modal-caption { margin: 0; color: var(--muted); text-align: center; font-size: .9rem; }
+    .intent-modal { width: min(860px, calc(100% - 32px)); }
+    .intent-modal .image-modal-header { align-items: flex-start; }
+    .intent-modal-description { max-width: 660px; margin: 5px 0 0; color: var(--muted); font-size: .9rem; }
+    .intent-form-frame {
+      display: block;
+      width: 100%;
+      height: min(68vh, 760px);
+      border: 1px solid #eadff4;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .intent-form-download { justify-self: start; min-height: 44px; }
     .gallery-empty {
       margin: 0;
       padding: 20px 22px;
