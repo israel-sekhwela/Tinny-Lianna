@@ -105,6 +105,12 @@
 
     const galleryMenu = document.querySelector("#gallery-menu");
     const galleryCollections = document.querySelector("#gallery-collections");
+    const schoolInfoCategories = galleryCategories.filter((category) =>
+      category.id === "banner" || category.id === "programme"
+    );
+    const menuCategories = galleryCategories.filter((category) =>
+      !schoolInfoCategories.includes(category)
+    );
 
     const renderImages = (images, kind = "photos") => `
       <div class="gallery-grid gallery-grid--${kind}">
@@ -120,15 +126,25 @@
       </div>
     `;
 
-    galleryMenu.innerHTML = galleryCategories.map((category) => {
+    const renderMenuLink = (category) => {
       const count = category.groups
         ? category.groups.reduce((total, group) => total + group.images.length, 0)
         : category.images.length;
       const countLabel = count ? `${count} ${count === 1 ? "image" : "images"}` : "Coming soon";
       return `<a href="#gallery-${category.id}">${category.title}<small>${countLabel}</small></a>`;
-    }).join("");
+    };
 
-    galleryCollections.innerHTML = galleryCategories.map((category) => {
+    galleryMenu.innerHTML = `
+      ${menuCategories.map(renderMenuLink).join("")}
+      <div class="gallery-menu-group" role="group" aria-label="School Info">
+        <h3>School Info</h3>
+        <div class="gallery-menu-group-links">
+          ${schoolInfoCategories.map(renderMenuLink).join("")}
+        </div>
+      </div>
+    `;
+
+    const renderCollection = (category, headingTag = "h3") => {
       let content;
       if (category.groups) {
         content = category.groups.map((group) => `
@@ -144,8 +160,18 @@
       }
       return `
         <section class="gallery-collection" id="gallery-${category.id}">
-          <h3>${category.title}</h3>
+          <${headingTag}>${category.title}</${headingTag}>
           ${content}
         </section>
       `;
-    }).join("");
+    };
+
+    galleryCollections.innerHTML = `
+      ${menuCategories.map((category) => renderCollection(category)).join("")}
+      <section class="gallery-collection" id="gallery-school-info">
+        <h3>School Info</h3>
+        <div class="gallery-school-info-grid">
+          ${schoolInfoCategories.map((category) => renderCollection(category, "h4")).join("")}
+        </div>
+      </section>
+    `;
