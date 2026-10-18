@@ -46,44 +46,6 @@
         ], "Daycare facility")
       },
       {
-        id: "meals",
-        title: "Meals",
-        kind: "photos",
-        images: photoList("meals", [
-          "IMG_0066.jpeg", "IMG_0074.jpeg", "IMG_9412.jpeg", "IMG_9413.jpeg",
-          "IMG_9414.jpeg", "IMG_9415.jpeg", "IMG_9416.jpeg", "IMG_9417.jpeg",
-          "IMG_9418.jpeg", "IMG_9775.jpeg", "IMG_9776.jpeg", "IMG_9779.jpeg"
-        ], "Meal")
-      },
-      {
-        id: "events",
-        title: "Events",
-        kind: "events",
-        groups: [
-          {
-            id: "heritage-day",
-            title: "Heritage Day",
-            images: photoList("events/2026/heritage day", [
-              "IMG_9846.jpeg", "IMG_9847.jpeg", "IMG_9940.jpeg", "IMG_9941.jpeg",
-              "IMG_9950.jpeg", "IMG_9954.jpeg", "IMG_9961.jpeg", "IMG_9962.jpeg",
-              "IMG_9967.jpeg", "IMG_9970.jpeg", "IMG_9981.jpeg", "IMG_9986.jpeg",
-              "IMG_9997.jpeg"
-            ], "Heritage Day")
-          },
-          {
-            id: "spring-day",
-            title: "Spring Day",
-            images: photoList("events/2026/spring day", [
-              "IMG_9421.jpeg", "IMG_9422.jpeg", "IMG_9423.jpeg", "IMG_9424.jpeg",
-              "IMG_9425.jpeg", "IMG_9431.jpeg", "IMG_9432.jpeg", "IMG_9435.jpeg",
-              "IMG_9437.jpeg", "IMG_9438.jpeg", "IMG_9441.jpeg", "IMG_9442.jpeg",
-              "IMG_9444.jpeg", "IMG_9445.jpeg", "IMG_9446.jpeg", "IMG_9616.jpeg",
-              "IMG_9623.jpeg", "IMG_9627.jpeg", "IMG_9653.jpeg", "IMG_9658.jpeg"
-            ], "Spring Day")
-          }
-        ]
-      },
-      {
         id: "banner",
         title: "Banner",
         kind: "photos",
