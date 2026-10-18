@@ -214,3 +214,27 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && imageModal.open) imageModal.close();
     });
+
+    const intentModal = document.querySelector("#intent-modal");
+    const intentOpenButton = document.querySelector(".intent-open");
+
+    intentOpenButton.addEventListener("click", () => {
+      intentModal.showModal();
+    });
+
+    intentModal.querySelector(".intent-modal-close").addEventListener("click", () => {
+      intentModal.close();
+    });
+
+    intentModal.addEventListener("click", (event) => {
+      if (event.target === intentModal) intentModal.close();
+    });
+
+    intentModal.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      intentModal.close();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && intentModal.open) intentModal.close();
+    });
