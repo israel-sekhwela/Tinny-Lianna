@@ -118,7 +118,7 @@
           const imageUrl = encodeURI(image.src);
           const imageClass = kind === "document" ? " gallery-image--document" : "";
           return `
-            <a class="gallery-image${imageClass}" href="${imageUrl}" target="_blank" rel="noopener noreferrer" aria-label="Open ${image.alt}">
+            <a class="gallery-image${imageClass}" href="${imageUrl}" aria-label="View ${image.alt}">
               <img src="${imageUrl}" alt="${image.alt}" loading="lazy" decoding="async">
             </a>
           `;
@@ -175,3 +175,42 @@
         </div>
       </section>
     `;
+
+    const imageModal = document.querySelector("#image-modal");
+    const modalImage = document.querySelector("#image-modal-image");
+    const modalTitle = document.querySelector("#image-modal-title");
+    const modalCaption = document.querySelector("#image-modal-caption");
+
+    galleryCollections.addEventListener("click", (event) => {
+      const link = event.target instanceof Element
+        ? event.target.closest("a.gallery-image")
+        : null;
+      if (!link) return;
+
+      event.preventDefault();
+      const image = link.querySelector("img");
+      if (!image) return;
+
+      modalImage.src = image.src;
+      modalImage.alt = image.alt;
+      modalTitle.textContent = image.alt;
+      modalCaption.textContent = image.alt;
+      imageModal.showModal();
+    });
+
+    imageModal.querySelector(".image-modal-close").addEventListener("click", () => {
+      imageModal.close();
+    });
+
+    imageModal.addEventListener("click", (event) => {
+      if (event.target === imageModal) imageModal.close();
+    });
+
+    imageModal.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      imageModal.close();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && imageModal.open) imageModal.close();
+    });
