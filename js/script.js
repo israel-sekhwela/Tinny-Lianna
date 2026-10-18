@@ -189,6 +189,15 @@
 
     const intentModal = document.querySelector("#intent-modal");
     const intentOpenButton = document.querySelector(".intent-open");
+    const intentForm = document.querySelector("#intent-form");
+    const childDateOfBirth = intentForm.querySelector('[name="child_date_of_birth"]');
+
+    const today = new Date();
+    childDateOfBirth.max = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, "0"),
+      String(today.getDate()).padStart(2, "0")
+    ].join("-");
 
     intentOpenButton.addEventListener("click", () => {
       intentModal.showModal();
