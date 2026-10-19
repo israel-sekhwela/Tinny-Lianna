@@ -531,8 +531,8 @@
       border-top: 1px solid #f0eaf2;
       background: #fffefa;
     }
-    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 28px; }
-    .footer-row p { margin: 0; color: #766c7e; font-size: .86rem; }
+    .footer-row { display: grid; grid-template-columns: minmax(240px, 300px) minmax(0, 1fr); align-items: center; gap: 28px; }
+    .footer-row p { max-width: 300px; margin: 0; color: #766c7e; font-size: .86rem; }
     .footer-details { display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-width: 0; }
     .footer-address,
     .footer-social {
@@ -571,7 +571,7 @@
     .footer-external { color: #91849c; font-size: .78rem; }
 
     @media (max-width: 900px) {
-      .hero-grid { gap: 28px; }
+      .footer-row { grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 15px; } .footer-details { width: 100%; justify-content: flex-start; }    .footer-row { grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 15px; } .footer-details { width: 100%; justify-content: flex-start; } .footer-social { flex: 0 0 42px; width: 42px; min-width: 42px; min-height: 42px; justify-content: center; padding: 3px; } .footer-social > span:nth-child(2) { display: none; } .footer-social > .footer-external { display: none; } .hero-grid { gap: 28px; }
       .art-card { min-height: 0; }
       .rainbow { top: 157px; transform: translateX(-50%) scale(.85); transform-origin: top center; }
       .kids { transform: translateX(-50%) scale(.82); transform-origin: bottom center; }
@@ -621,13 +621,13 @@
       .contact-actions { flex-direction: row; flex-wrap: wrap; }
       .contact-actions .button { flex: 1 1 180px; }
       .contact-card::after { right: -15px; bottom: -100px; }
-      .footer-row { flex-direction: column; align-items: stretch; gap: 17px; }
-      .footer-details { justify-content: flex-start; gap: 8px; }
+      .footer-row { gap: 17px; }
+      .footer-details { gap: 8px; }
       .footer-address { flex: 1 1 0; min-width: 0; white-space: normal; }
       .footer-address > span:nth-child(2) { overflow-wrap: anywhere; }
-      .footer-social { flex: 0 0 42px; width: 42px; min-width: 42px; min-height: 42px; justify-content: center; padding: 3px; }
-      .footer-social > span:nth-child(2),
-      .footer-social > .footer-external { display: none; }
+      
+      
+      
     }
     @media (max-width: 390px) {
       .wrap { width: calc(100% - 28px); }
