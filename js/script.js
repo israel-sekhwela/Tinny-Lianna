@@ -26,6 +26,103 @@
 
     const galleryCategories = [
       {
+        id: "meals",
+        title: "Meals & snacks",
+        kind: "meals",
+        meals: [
+          {
+            filename: "IMG_0124.jpg",
+            title: "Pasta with tomato sauce and egg",
+            description: "Pasta with tomato sauce and a savoury topping, served with sliced hard-boiled egg and cabbage."
+          },
+          {
+            filename: "IMG_0125.jpg",
+            title: "Chicken bites with mash and carrots",
+            description: "Golden chicken bites are served with creamy mashed potato and bright carrot sticks."
+          },
+          {
+            filename: "IMG_0126.jpg",
+            title: "Pasta with mince and fresh sides",
+            description: "Pasta with a savoury mince topping, accompanied by cucumber slices and beetroot."
+          },
+          {
+            filename: "IMG_0127.jpg",
+            title: "Toasted sandwiches and potato wedges",
+            description: "Toasted sandwich triangles and seasoned potato wedges, with tomato sauce on the side."
+          },
+          {
+            filename: "IMG_0129.jpg",
+            title: "Fatcake and potato wedges",
+            description: "Fatcakes served with potato wedges and a little tomato sauce for dipping."
+          },
+          {
+            filename: "IMG_0128.jpg",
+            title: "Rice, stew and vegetables",
+            description: "Yellow rice and a hearty-looking stew are served with carrot sticks, a creamy slaw and sausage."
+          },
+          {
+            filename: "IMG_0130.jpg",
+            title: "Chicken and rice with sweetcorn",
+            description: "A colourful plate of yellow rice with saucy chicken and tomato, a golden savoury side and sweetcorn."
+          },
+          {
+            filename: "IMG_0131.jpg",
+            title: "Soft pap with chicken",
+            description: "Soft pap is paired with golden chicken pieces and a little gravy."
+          },
+          {
+            filename: "IMG_0132.jpg",
+            title: "A warm bowl of oats",
+            description: "Oats are served in colourful bowls for a cosy breakfast."
+          },
+          {
+            filename: "IMG_0133.jpg",
+            title: "Porridge time",
+            description: "A little one enjoys a bowl of soft porridge at the table."
+          },
+          {
+            filename: "IMG_0134.jpg",
+            title: "Mince and potato with mash",
+            description: "A savoury mince-and-potato stew is served with mashed potato and cucumber slices."
+          },
+          {
+            filename: "IMG_0135.jpg",
+            title: "Fruit, yoghurt and a wafer",
+            description: "Fresh apple pieces and a wafer biscuit are served alongside a smooth, creamy snack."
+          },
+          {
+            filename: "IMG_0136.jpg",
+            title: "A little cake treat",
+            description: "A small slice of golden cake makes a simple teatime treat."
+          },
+          {
+            filename: "IMG_0137.jpg",
+            title: "Pap with stew and pumpkin",
+            description: "Soft pap is served with a savoury chicken stew and a golden pumpkin side."
+          },
+          {
+            filename: "IMG_0138.jpg",
+            title: "Enjoying a bowl together",
+            description: "Little ones tuck into a soft, warm bowl of porridge."
+          },
+          {
+            filename: "IMG_0139.jpg",
+            title: "Custard, orange and wafer",
+            description: "A sweet snack of creamy custard, juicy orange pieces and a crisp wafer biscuit."
+          },
+          {
+            filename: "IMG_0140.jpg",
+            title: "Banana and orange snack",
+            description: "Fresh banana and orange segments are served in child-size portions."
+          },
+          {
+            filename: "IMG_0141.jpg",
+            title: "Fruit with creamy custard",
+            description: "A colourful snack of creamy custard, orange pieces and grapes."
+          }
+        ]
+      },
+      {
         id: "facilities",
         title: "Facilities",
         kind: "photos",
@@ -82,9 +179,11 @@
     const schoolInfoCategories = galleryCategories.filter((category) =>
       category.id === "banner" || category.id === "programme"
     );
-    const menuCategories = galleryCategories.filter((category) =>
-      !schoolInfoCategories.includes(category)
-    );
+    const menuCategories = galleryCategories
+      .filter((category) => !schoolInfoCategories.includes(category))
+      .sort((first, second) => (
+        first.id === "facilities" ? -1 : second.id === "facilities" ? 1 : 0
+      ));
 
     const renderImages = (images, kind = "photos") => `
       <div class="gallery-grid gallery-grid--${kind}">
@@ -103,7 +202,9 @@
     const renderMenuLink = (category) => {
       const count = category.groups
         ? category.groups.reduce((total, group) => total + group.images.length, 0)
-        : category.images.length;
+        : category.meals
+          ? category.meals.length
+          : category.images.length;
       const countLabel = count ? `${count} ${count === 1 ? "image" : "images"}` : "Coming soon";
       return `<a href="#gallery-${category.id}">${category.title}<small>${countLabel}</small></a>`;
     };
@@ -120,7 +221,26 @@
 
     const renderCollection = (category, headingTag = "h3") => {
       let content;
-      if (category.groups) {
+      if (category.meals) {
+        content = `
+          <div class="meal-list">
+            ${category.meals.map((meal) => {
+              const imageUrl = encodeURI(`assets/images/meals/${meal.filename}`);
+              return `
+                <article class="meal-card">
+                  <a class="meal-card-image gallery-image" href="${imageUrl}" aria-label="View ${meal.title}">
+                    <img src="${imageUrl}" alt="${meal.title}" loading="lazy" decoding="async">
+                  </a>
+                  <div class="meal-card-copy">
+                    <h4>${meal.title}</h4>
+                    <p>${meal.description}</p>
+                  </div>
+                </article>
+              `;
+            }).join("")}
+          </div>
+        `;
+      } else if (category.groups) {
         content = category.groups.map((group) => `
           <section class="gallery-subcollection" id="gallery-${group.id}">
             <h4>${group.title}</h4>

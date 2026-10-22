@@ -7,7 +7,7 @@ A responsive, single-page website for Tinny Lianna's Daycare in Bonaero Park, Ke
 - Daycare information, opening hours, and location
 - Registration information and an online Intent form
 - Facebook and TikTok search links for Tinny Lianna's Daycare
-- Gallery sections for facilities and school information
+- Gallery sections for meals, facilities, and school information
 - Responsive layout and image-preview modal
 - Launch-ready assets published from the `live-assets` branch
 
@@ -17,7 +17,7 @@ Run `python -m http.server 8000` from the website folder, then open `http://loca
 
 ## Images
 
-The `live-assets` branch includes the logo, banner, daily programme, and facility photos used by the published website. Meal and event gallery photos are not part of this launch and can be added later when ready for publication.
+The website includes the logo, banner, daily programme, facility photos, and meal photos. Event gallery photos are not currently included.
 
 ## Intent form
 
