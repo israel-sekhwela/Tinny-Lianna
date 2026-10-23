@@ -79,7 +79,7 @@
       object-fit: cover;
       box-shadow: 0 6px 14px rgba(102, 36, 167, .16);
     }
-    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a {
       color: #51445e;
       text-decoration: none;
@@ -461,6 +461,61 @@
     .detail-card small { display: block; color: #6b5c73; margin-top: 5px; }
 
     .registrations { padding-top: 0; }
+    .weekend-visit { background: #fff9f0; }
+    .weekend-visit-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .weekend-visit-copy,
+    .weekend-visit-policy {
+      padding: clamp(24px, 4vw, 38px);
+      border: 1px solid #f0e2c7;
+      border-radius: 22px;
+      background: #fffefa;
+      box-shadow: 0 10px 30px rgba(54, 27, 76, .055);
+    }
+    .weekend-visit-copy { display: grid; gap: 24px; }
+    .weekend-visit-block + .weekend-visit-block {
+      padding-top: 24px;
+      border-top: 1px solid #f0e2c7;
+    }
+    .weekend-visit h3 {
+      margin: 0 0 10px;
+      color: var(--purple);
+      font-size: 1.15rem;
+    }
+    .weekend-visit p { margin: 0; color: var(--muted); }
+    .weekend-visit ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    .weekend-visit li::marker { color: var(--purple); }
+    .weekend-visit-policy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .weekend-visit-policy ul { margin-bottom: 20px; }
+    .weekend-visit-form-note {
+      margin-bottom: 22px !important;
+      font-size: .9rem;
+    }
+    .weekend-visit-form-note a {
+      color: var(--purple);
+      font-weight: 800;
+    }
+    .weekend-visit-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+      margin-top: auto;
+    }
+    .weekend-visit-actions .button { justify-content: center; text-align: center; }
     .registration-card {
       display: grid;
       grid-template-columns: 1fr .9fr;
@@ -620,6 +675,10 @@
       .feature-icon { margin-bottom: 14px; }
       .details-grid { grid-template-columns: 1fr; gap: 25px; }
       .details-cards { gap: 10px; }
+      .weekend-visit-grid { grid-template-columns: 1fr; }
+      .weekend-visit-actions,
+      .intent-form-actions { grid-template-columns: 1fr; }
+      .intent-submit { grid-column: auto; }
       .detail-card { min-height: 138px; padding: 17px; }
       .registrations { padding-top: 0; }
       .registration-card { grid-template-columns: 1fr; gap: 24px; padding: 27px 22px; border-radius: 23px; }
@@ -874,10 +933,15 @@
     [data-fs-error=""][data-fs-active] { color: #7e1e2c; background: #fff0f2; border-color: #f1cbd1; }
     [data-fs-success][data-fs-active] { color: #225b32; background: #eff9f1; border-color: #cce8d2; }
     [data-fs-field][aria-invalid="true"] { border-color: #b42336; }
-    .intent-form-actions { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
-    .intent-submit { justify-self: start; min-height: 46px; }
+    .intent-form-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .intent-submit { grid-column: 1 / -1; min-height: 46px; }
     .intent-submit:disabled { cursor: not-allowed; opacity: .65; }
-    .intent-form-download { min-height: 46px; margin-left: auto; }
+    .intent-form-download,
+    .intent-form-enquire { min-height: 46px; text-align: center; }
     .gallery-empty {
       margin: 0;
       padding: 20px 22px;

@@ -5,6 +5,7 @@ A responsive, single-page website for Tinny Lianna's Daycare in Bonaero Park, Ke
 ## Features
 
 - Daycare information, opening hours, and location
+- Weekend Visit Programme details and downloadable form
 - Registration information and an online Intent form
 - Facebook and TikTok search links for Tinny Lianna's Daycare
 - Gallery sections for meals, facilities, and school information
